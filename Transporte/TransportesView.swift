@@ -29,6 +29,14 @@ struct TransportesView: View {
                    }
                    
                }
+           if pressed{
+               Image(systemName:"figure.run")
+                   .foregroundStyle(.white)
+                   .padding(8)
+                   .background(Color.blue)
+                   .clipShape(Circle())
+                   .transition(.slide)
+           }
            Text("Index selecionado es \(selectIndex)")
            
         }

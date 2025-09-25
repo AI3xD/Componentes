@@ -10,10 +10,14 @@ import SwiftUI
 struct ContentView: View {
     @State var cardSelected: Int = -1
     @State var pressedPadre: Bool = false
+    @State var destino: String = ""
     var body: some View {
         ScrollView{
             
             Text("Content view \(cardSelected)")
+            
+            TextField("¿A dónde quieres ir?", text: $destino )
+            Text("Viajaras a \(destino)")
     
         
         ScrollView(.horizontal){
