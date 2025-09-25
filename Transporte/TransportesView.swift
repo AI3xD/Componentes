@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct TransportesView: View {
-    @State var pressed: Bool = false
-    @State var name : String
-    @State var image : String
+    @Binding var pressed: Bool
+    var name : String
+    var image : String
+    var index : Int
+    @Binding var selectIndex : Int
+    
     func Labelpresionado() ->CGFloat{
         return pressed ? 180 : 0
     }
@@ -20,15 +23,18 @@ struct TransportesView: View {
                .rotationEffect(.degrees(Labelpresionado()))
                .onTapGesture {
                    withAnimation(.easeInOut(duration: 0.5)){
+                       self.selectIndex = self.index
                        self.pressed.toggle()
+                    
                    }
                    
                }
+           Text("Index selecionado es \(selectIndex)")
            
         }
     }
 }
 
 #Preview {
-    TransportesView(name:"Barco", image:"sailboat")
+    TransportesView(pressed: .constant(false), name:"Barco", image:"sailboat",index: -1,selectIndex: .constant(-1))
 }
